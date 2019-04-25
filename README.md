@@ -50,7 +50,7 @@ You will need to use MySQL to access our database. The database informations wil
 ## Challenge
 
 ### SQL test
-1) How many product the company has?
+1) How many products does the company have?
 2) What are the 10 most expensive products in the company?
 3) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
 4) When were the most products sold? In which store?
