@@ -2,6 +2,7 @@
 ![Looqbox](https://github.com/looqbox/data-challenge/blob/master/logo.png)
 
 ## Accessing the database
+You will need to use MySQL to access our database. The database informations will be sent to you with the challenge e-mail.
 
 ## Tables descriptions
 - **DATA_PRODUCT: PRODUCT REGISTRATION**
@@ -48,26 +49,23 @@
 
 ## Challenge
 
-# SQL test
+### SQL test
 1) How many product the company has?
 2) What are the 10 most expensive products in the company?
 3) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
-4) What day and the store that most had products sold?
+4) When were the most products sold? In which store?
 5) **Bonus!!** What was the sale of each business area in the first quarter of 2019? 
 
-# Building your own visualization
-1) Create at least one view using the table IMDB_movies, the visualization must be done in R or Python, however the libraries, data, graphic and etc ... are free for the candidate's choice.
+### Building your own visualization
+1) Create at least one chart using the table IMDB_movies. The code must be in R or Python, and you are free to use any libraries, data and graphic format.
 
 ## Stack
-We use:
 - MySQL database 
 - R/Python
 
 ## Submitting
-- Send an e-mail to
-
-# Guidelines
-
+- Send an e-mail to the person that you are in contact with in Looqbox!
+- Your answer must have the queries and the visualization (you can use notebooks or regular code)
 
 ## Bonus points!
 - Question 5 is a bonus question!
