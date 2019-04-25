@@ -4,7 +4,8 @@
 ## Accessing the database
 You will need to use MySQL to access our database. The database informations will be sent to you with the challenge e-mail.
 
-## Tables descriptions
+## Challenge
+### Tables descriptions
 - **DATA_PRODUCT: PRODUCT INFO**
 
 | COLUMN NAME  | COLUMN DESCRIPTION                                 |
@@ -47,9 +48,9 @@ You will need to use MySQL to access our database. The database informations wil
 | SALES_VALUE  | TOTAL VALUE OF SALES IN THAT DATE                  |
 | SALES_QTY    | TOTAL QUANTITY OF SALES IN THAT DATE               |
 
-## Challenge
-
 ### SQL test
+After access our database, you will use the schema **looqbox_challenge**
+
 1) How many products does the company have?
 2) What are the 10 most expensive products in the company?
 3) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
