@@ -49,7 +49,7 @@ You will need to use MySQL to access our database. The database informations wil
 | SALES_QTY    | TOTAL QUANTITY OF SALES IN THAT DATE               |
 
 ### SQL test
-After access our database, you will use the schema **looqbox_challenge**
+After access our database, you will use the schema **looqbox_challenge** to answer the following questions:
 
 1) How many products does the company have?
 2) What are the 10 most expensive products in the company?
