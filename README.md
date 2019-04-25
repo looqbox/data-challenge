@@ -5,7 +5,7 @@
 You will need to use MySQL to access our database. The database informations will be sent to you with the challenge e-mail.
 
 ## Tables descriptions
-- **DATA_PRODUCT: PRODUCT REGISTRATION**
+- **DATA_PRODUCT: PRODUCT INFO**
 
 | COLUMN NAME  | COLUMN DESCRIPTION                                 |
 |--------------|----------------------------------------------------|
@@ -27,7 +27,7 @@ You will need to use MySQL to access our database. The database informations wil
 | SALES_VALUE  | SALES VALUES                                       |
 | SALES_QTY    | SALES QUANTITY                                     |
 
-- **DATA_STORE_CAD: STORE REGISTRATION**
+- **DATA_STORE_CAD: STORE INFO**
 
 | COLUMN NAME  | COLUMN DESCRIPTION                                 |
 |--------------|----------------------------------------------------|
