@@ -2,7 +2,7 @@
 ![Looqbox](https://github.com/looqbox/data-challenge/blob/master/logo.png)
 
 ## Accessing the database
-You will need to use MySQL to access our database. The database informations will be sent to you with the challenge e-mail.
+You will need to access our MySQL database for this challenge. The database credentials will be sent to you by e-mail.
 
 ## Challenge
 ### Tables descriptions
@@ -49,7 +49,7 @@ You will need to use MySQL to access our database. The database informations wil
 | SALES_QTY    | TOTAL QUANTITY OF SALES IN THAT DATE               |
 
 ### SQL test
-After access our database, you will use the schema **looqbox_challenge** to answer the following questions:
+After accessing our database, you will use the schema **looqbox_challenge** to answer the following questions:
 
 1) How many products does the company have?
 2) What are the 10 most expensive products in the company?
@@ -58,19 +58,19 @@ After access our database, you will use the schema **looqbox_challenge** to answ
 5) **Bonus!!** What was the sale of each business area in the first quarter of 2019? 
 
 ### Building your own visualization
-1) Create at least one chart using the table IMDB_movies. The code must be in R or Python, and you are free to use any libraries, data and graphic format.
+1) Create at least one chart using the table **IMDB_movies**. The code must be in R or Python, and you are free to use any libraries, data in the table and graphic format.
 
 ## Stack
 - MySQL database 
 - R/Python
 
 ## Submitting
-- Send an e-mail to the person that you are in contact with in Looqbox!
+- Send an e-mail to the person that you are in contact within Looqbox!
 - Your answer must have the queries and the visualization (you can use notebooks or regular code)
 
 ## Bonus points!
 - Question 5 is a bonus question!
-- Explain why you chose the visualization.
+- Explain why you chose the visualization you are submitting.
 
 ## Useful links
 - [MySQL documentation](https://dev.mysql.com/doc/)
