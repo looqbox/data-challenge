@@ -12,4 +12,11 @@ select distinct section_name, dep_name from data_product where dep_name = 'PADAR
 select distinct section_name, dep_name from data_product where dep_name = 'BEBIDAS';
 
 select * from data_product_sales;
-select distinct sales_value, date from data_product_sales order by sales_value;
+select * from data_store_cad;
+-- The most products sold and its store
+select A.sales_value, A.date, B.business_name
+from data_product_sales as A
+inner join data_store_cad as B
+on B.store_code = A.store_code order by sales_value desc;
+
+-- The sale of each business area in the first quarter of 2019
