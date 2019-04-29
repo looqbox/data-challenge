@@ -43,6 +43,5 @@ ggplot(tfd_drama, aes(x=Title, y=Rating)) +
 ggplot(tfd_comedy, aes(x=Title, y=Rating)) + 
   geom_bar(stat="identity", width=.5, fill="tomato3") + 
   labs(title="Comedy Movies", 
-       subtitle="Scale Rating of Comedy Movies", 
-       caption="source: mpg") + 
+       subtitle="Scale Rating of Comedy Movies") + 
   theme(axis.text.x = element_text(angle=65, vjust=0.6))
