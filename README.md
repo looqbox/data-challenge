@@ -49,13 +49,13 @@ You will need to access our MySQL database for this challenge. The database cred
 | SALES_QTY    | TOTAL QUANTITY OF SALES IN THAT DATE               |
 
 ### SQL test
-After accessing our database, you will use the schema **looqbox_challenge** to answer the following questions:
+After accessing our database, create queries using the schema **looqbox_challenge** to answer the following questions:
 
 1) How many products does the company have?
 2) What are the 10 most expensive products in the company?
 3) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
 4) When were the most products sold? In which store?
-5) **Bonus!!** What was the total sale of the products of each business area in the first quarter of 2019?
+5) **Bonus!!** What was the total sale of products of each business area in the first quarter of 2019?
 
 ### Building your own visualization
 1) Create at least one chart using the table **IMDB_movies**. The code must be in R or Python, and you are free to use any libraries, data in the table and graphic format.
