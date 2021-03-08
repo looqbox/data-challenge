@@ -55,7 +55,7 @@ After accessing our database, create queries using the schema **looqbox_challeng
 2) What are the 10 most expensive products in the company?
 3) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
 4) When were the most products sold? In which store?
-5) **Bonus!!** What was the total sale of products of each business area in the first quarter of 2019?
+5) **Bonus!!** What was the total sale of products (in $) of each business area in the first quarter of 2019?
 
 ### Building your own visualization
 1) Create at least one chart using the table **IMDB_movies**. The code must be in R or Python, and you are free to use any libraries, data in the table and graphic format.
