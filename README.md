@@ -66,7 +66,7 @@ After accessing our database, create queries using the schema **looqbox_challeng
 
 ## Submitting
 - Send an e-mail to the person that you are in contact within Looqbox!
-- Your answer must have the queries and the visualization (you can use notebooks or regular code)
+- Your answer must be sent in PDF format with the code snippets used in each question, as well as the result obtained (values, tables, graphs)
 
 ## Bonus points!
 - Question 5 is a bonus question!
