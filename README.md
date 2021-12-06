@@ -55,10 +55,10 @@ After accessing our database, create queries using the schema **looqbox_challeng
 2) What are the 10 most expensive products in the company?
 3) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
 4) Which store sold the most products in one day? Which day?
-5) **Bonus!!** What was the total sale of products (in $) of each business area in the first quarter of 2019?
+5) What was the total sale of products (in $) of each Business Area in the first quarter of 2019?
 
 ### Building your own visualization
-1) Create at least one chart using the table **IMDB_movies**. The code must be in R or Python, and you are free to use any libraries, data in the table and graphic format.
+1) Create at least one chart using the table **IMDB_movies**. The code must be in R or Python, and you are free to use any libraries, data in the table and graphic format. Explain why you chose the visualization (or visualizations) you are submitting.
 
 ## Stack
 - MySQL database 
@@ -67,10 +67,6 @@ After accessing our database, create queries using the schema **looqbox_challeng
 ## Submitting
 - Send an e-mail to the person that you are in contact within Looqbox!
 - Your answer must be sent in PDF format with the code snippets used in each question, as well as the result obtained (values, tables, graphs)
-
-## Bonus points!
-- Question 5 is a bonus question!
-- Explain why you chose the visualization you are submitting.
 
 ## Useful links
 - [MySQL documentation](https://dev.mysql.com/doc/)
