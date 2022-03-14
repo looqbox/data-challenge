@@ -123,7 +123,7 @@ In addition, he gave you this set of instructions:
 
 
 <details>
- <summary><b> We are in need of this visualization!</b></summary>
+ <summary><b> We are in need of this visualization! Please, create it with Python or R</b></summary>
   
 | Loja           | Categoria   | TM    | 
 |----------------|-------------|-------| 
