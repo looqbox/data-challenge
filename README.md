@@ -7,7 +7,7 @@
 You will need to access our MySQL database for this challenge. The database credentials will be sent to you by e-mail.
 
 ## Challenge
-### Tables descriptions
+### Tables descriptions (you can click on them to see the columns on each table)
  <details>
   <summary><b> DATA_PRODUCT: PRODUCT INFO</b></summary>
 
