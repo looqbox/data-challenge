@@ -70,7 +70,7 @@ After accessing our database, create queries using the schema **looqbox_challeng
 
 ### Cases
 #### 1) The Dev Team was tired of developing the same old queries just varying the filters accordingly to their boss demands.
-As a new member of the crew, your mission now is to create a dynamic function, on the most flexible of ways, to produce queries and retrieve a dataframe based on three parameters:
+As a new member of the crew, your mission now is to create a dynamic function in R or Python, on the most flexible of ways, to produce queries and retrieve a dataframe based on three parameters:
 
 - product_code: integer
 
@@ -84,7 +84,8 @@ As a new member of the crew, your mission now is to create a dynamic function, o
   - c('2019-01-01', '2019-01-31') → R
 
 It should look like this
-my_data = retrieve_data(product_code, store_code, date)
+my_data = retrieve_data(product_code, store_code, date) #Python
+my_data = retrieve_data(product_code, store_code, date) #R
 
 Make your team proud!
 
