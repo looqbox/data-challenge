@@ -70,7 +70,7 @@ After accessing our database, create queries using the schema **looqbox_challeng
 
 ### Cases
 #### 1) The Dev Team was tired of developing the same old queries just varying the filters accordingly to their boss demands.
-As a new member of the crew, your mission now is to create a dynamic function in R or Python, on the most flexible of ways, to produce queries and retrieve a dataframe based on three parameters:
+As a new member of the crew, your mission now is to create a dynamic function in Python, on the most flexible of ways, to produce queries and retrieve a dataframe based on three parameters:
 
 - product_code: integer
 
@@ -79,13 +79,10 @@ As a new member of the crew, your mission now is to create a dynamic function in
 - date: list of ISO-like strings
 
 - Date e.g.
-  - ['2019-01-01', '2019-01-31'] → Python
-
-  - c('2019-01-01', '2019-01-31') → R
+  - ['2019-01-01', '2019-01-31']
 
 It should look like this
-my_data = retrieve_data(product_code, store_code, date) #Python
-my_data = retrieve_data(product_code, store_code, date) #R
+my_data = retrieve_data(product_code, store_code, date)
 
 Make your team proud!
 
@@ -126,7 +123,7 @@ In addition, he gave you this set of instructions:
 
 
 <details>
- <summary><b> We are in need of this visualization (click here to see it)! Please, create it with Python or R</b></summary>
+ <summary><b> We are in need of this visualization (click here to see it)! Please, create it with Python</b></summary>
   
 | Loja           | Categoria   | TM    | 
 |----------------|-------------|-------| 
@@ -155,11 +152,11 @@ In addition, he gave you this set of instructions:
 
 #### 3) Building your own visualization
 
-Create at least one chart using the table **IMDB_movies**. The code must be in R or Python, and you are free to use any libraries, data in the table and graphic format. Explain why you chose the visualization (or visualizations) you are submitting.
+Create at least one chart using the table **IMDB_movies**. The code must be in Python, and you are free to use any libraries, data in the table and graphic format. Explain why you chose the visualization (or visualizations) you are submitting.
 
 ## Stack
 - MySQL database 
-- R/Python
+- Python
 
 ## Submitting
 - Send an e-mail to the person that you are in contact within Looqbox!
