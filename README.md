@@ -116,7 +116,7 @@ WHERE DATE BETWEEN '2019-01-01' AND '2019-12-31'
 ```
 In addition, he gave you this set of instructions:
 
-- You must not modify my queries!
+- Use the queries as they are (do not modify them or create a new one);
 
 - Please filter the period between this given range: 
   - ['2019-10-01','2019-12-31']
