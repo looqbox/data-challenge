@@ -87,7 +87,8 @@ my_data = retrieve_data(product_code, store_code, date)
 Make your team proud!
 
 Extra instructions:
-Retrieve all columns from table data_product_sales.
+- Retrieve all columns from table data_product_sales;
+- Imagine people from other teams will also utilize this function!
 
 #### 2) A brand new client sent you two ready-to-go queries. Those are listed below:
 
