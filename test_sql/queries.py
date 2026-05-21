@@ -18,4 +18,15 @@ def get_top_10_expensive_products():
     LIMIT 10
     """
     return pd.read_sql(query, engine)
-    
+
+def get_sections_by_category():
+    query = """
+    SELECT DISTINCT
+        DEP_NAME,
+        SECTION_NAME
+    FROM data_product
+    WHERE 
+        DEP_NAME IN ('BEBIDAS', 'PADARIA')
+    ORDER BY DEP_NAME, SECTION_NAME
+    """
+    return pd.read_sql(query, engine)
