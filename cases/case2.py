@@ -37,16 +37,19 @@ def get_ticket_medio_by_store():
     ]
 
     df = df_sales.merge(df_store, on='STORE_CODE', how='left')
-    df_agg = df.groupby(
-        ['STORE_NAME', 'BUSINESS_NAME']
-        ).agg(
-            TICKET_MEDIO=('SALES_VALUE', 'mean')
-        ).reset_index()
-    
-    df_agg = df_agg.rename(columns={
-        'STORE_NAME': 'Loja',
-        'BUSINESS_NAME': 'Categoria',
-        'TICKET_MEDIO': 'TM'
-        })
 
-    return df_agg.sort_values(by='TM', ascending=False)
+    df_grouped = df.groupby(['STORE_NAME', 'BUSINESS_NAME']).agg(
+        TOTAL_VAL=('SALES_VALUE', 'sum'),
+        TOTAL_QTY=('SALES_QTY', 'sum')
+    ).reset_index()
+
+    df_grouped['TM'] = df_grouped['TOTAL_VAL'] / df_grouped['TOTAL_QTY']
+    
+    df_grouped['TM'] = df_grouped['TM'].round(2)
+
+    df_final = df_grouped.rename(columns={
+        'STORE_NAME': 'Loja',
+        'BUSINESS_NAME': 'Categoria'
+    })
+
+    return df_final[['Loja', 'Categoria', 'TM']].sort_values(by='TM', ascending=False)
