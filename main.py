@@ -1,15 +1,9 @@
-from database import get_engine
-import pandas as pd
+from test_sql.queries import get_top_10_expensive_products
 
-engine = get_engine()
-
-def listar_tabelas():
-    query = "SHOW TABLES"
-
-    df = pd.read_sql(query, engine)
-
-    return df
-print(listar_tabelas())
+def main():
+    #1. Obter os 10 produtos mais caros
+    df_products = get_top_10_expensive_products()
+    print(df_products)
 
 if __name__ == "__main__":
-    print("E aí, Looqbox!")
+    main()
