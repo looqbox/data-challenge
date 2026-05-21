@@ -1,4 +1,6 @@
 from cases.case1 import recuper_data
+from cases.case2 import get_ticket_medio_by_store
+from cases.case3 import plot_rating_distribution
 
 from test_sql.queries import (
     get_top_10_expensive_products,
@@ -30,6 +32,16 @@ def main():
         date_range=['2019-01-01', '2019-03-31']
     )
     print(df_filtered)
+
+    #5. Exemplo de uso da função de cálculo do ticket médio por loja
+    print("\nTicket médio por loja:")
+    df_ticket_medio = get_ticket_medio_by_store()
+    print(df_ticket_medio)
+
+    #6. Gráfico de Distribuição de Avaliações por Gênero
+    print("\nPlotando a distribuição de avaliações por gênero...") 
+    plot_rating_distribution()
+
 
 if __name__ == "__main__":
     main()

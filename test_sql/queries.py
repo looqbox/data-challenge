@@ -39,7 +39,8 @@ def get_total_sales_by_business_area():
     FROM data_product_sales as ps
     JOIN data_store_cad as sc
         ON ps.STORE_CODE = sc.STORE_CODE
-    WHERE ps.DATE BETWEEN '2019-01-01' AND '2019-03-31'
+    WHERE
+        ps.DATE BETWEEN '2019-01-01' AND '2019-03-31'
     GROUP BY sc.BUSINESS_NAME
     ORDER BY TOTAL_SALES DESC
     """
