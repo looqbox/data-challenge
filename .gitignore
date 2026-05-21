@@ -1,0 +1,18 @@
+# Python Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+
+# Arquivos de configuração do VS Code ou IDE
+.vscode/
+.idea/
+
+# Arquivos de banco de dados locais ou variáveis de ambiente
+*.db
+.env
