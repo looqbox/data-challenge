@@ -1,6 +1,7 @@
 from test_sql.queries import (
     get_top_10_expensive_products,
-    get_sections_by_category
+    get_sections_by_category,
+    get_total_sales_by_business_area
 )
 def main():
     #1. Obter os 10 produtos mais caros
@@ -12,6 +13,11 @@ def main():
     print("\nSeções para as categorias 'BEBIDAS' e 'PADARIA':")
     df_sections = get_sections_by_category()
     print(df_sections)
+
+    #3. Obter o total de vendas por área de negócio para o primeiro trimestre de 2019
+    print("\nTotal de vendas por área de negócio (1º trimestre de 2019):")
+    df_sales = get_total_sales_by_business_area()
+    print(df_sales)
 
 if __name__ == "__main__":
     main()
