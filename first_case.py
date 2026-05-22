@@ -1,3 +1,9 @@
+
+# Desenvolvi o código com a ideia de fazer uma query fixa e depois utilizei alguns "CASES" para identificar se foi passado algum parametro ou não
+# e assim montar a query dinamicamente, concatenando a parte necessária para o resultado final.
+
+# Utilizei o ChatGPT para me ajudar a debbugar o codigo apenas.
+
 import pandas as pd
 from sqlalchemy import create_engine, text
 

@@ -1,3 +1,9 @@
+
+# Desenvolvi o código utilizando as duas Queries que estavam no desafio, e depois utilizei o pandas para fazer a junção dos dados.
+
+# Utilizei o ChatGPT para me ajudar a debbugar o codigo apenas.
+
+
 import pandas as pd
 from sqlalchemy import create_engine
 
