@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Ambiente local
+.venv/
+venv/
+.env
+
+# Arquivos de teste/local
+teste.py
+*.session.sql
+
+# Config sensivel/local
+src/db_config.py
+
+# Sistema/IDE
+.DS_Store
+Thumbs.db
+.vscode/

@@ -6,6 +6,9 @@
 ## Accessing the database
 You will need to access our MySQL database for this challenge. The database credentials will be sent to you by e-mail.
 
+## Comentário pessoal
+Para executar o projeto, copie src/db_config_example.py para src/db_config.py.
+
 ## Challenge
 ### Tables descriptions (you can click on them to see the columns on each table)
  <details>
