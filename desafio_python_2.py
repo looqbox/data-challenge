@@ -1,3 +1,5 @@
+# Desafio 2: A brand new client sent you two ready-to-go queries...
+
 import pandas as pd
 import os
 from dotenv import load_dotenv

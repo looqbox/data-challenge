@@ -1,3 +1,5 @@
+# Desafio 1: The Dev Team was tired of developing the same old queries...
+
 import pandas as pd
 import os
 from dotenv import load_dotenv
