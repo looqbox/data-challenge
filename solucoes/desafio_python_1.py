@@ -30,16 +30,20 @@ def get_product_sales_dataframe(product_code: int, store_code: int, date: list):
     """
 
     # Constroi a query
-    query = f"""
+    query = """
     SELECT * FROM data_product_sales 
-    WHERE PRODUCT_CODE = {product_code} 
-        AND STORE_CODE = {store_code}
-        AND DATE BETWEEN '{date[0]}' AND '{date[1]}' 
+    WHERE PRODUCT_CODE = %s
+        AND STORE_CODE = %s
+        AND DATE BETWEEN %s AND %s
     ORDER BY DATE;
-    """ 
+    """
 
     # Executa a query usando a engine fornecida e carrega o resultado já como um dataframe
-    df = pd.read_sql(query, engine)
+    df = pd.read_sql(
+        query, 
+        engine, 
+        params=(product_code, store_code, date[0], date[1])
+    )
     
     # Retorna o dataframe
     return df

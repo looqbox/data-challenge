@@ -8,7 +8,7 @@ LIMIT 10;
 USE `looqbox-challenge`;
 SELECT DISTINCT SECTION_COD, SECTION_NAME, DEP_NAME 
 FROM data_product
-WHERE DEP_NAME = 'BEBIDAS' OR DEP_NAME = 'PADARIA'
+WHERE DEP_NAME IN ('BEBIDAS', 'PADARIA')
 ORDER BY DEP_NAME;
 
 -- 3. What was the total sale of products (in $) of each Business Area in the first quarter of 2019?
