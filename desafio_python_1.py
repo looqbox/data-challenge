@@ -17,7 +17,17 @@ connection_string = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT
 # Cria o motor de conexão
 engine = create_engine(connection_string)
 
-def retrieve_data(product_code: int, store_code: int, date: list):
+def get_product_sales_dataframe(product_code: int, store_code: int, date: list):
+    """
+    Retorna um DataFrame da tabela 'data_product_sales' com base nos parâmetros fornecidos.
+    
+    Parâmetros:
+    - product_code (int): Código do produto.
+    - store_code (int): Código da loja.
+    - date (list): Lista contendo o intervalo de datas [data_inicio, data_fim].
+    """
+
+    # Constroi a query
     query = f"""
     SELECT * FROM data_product_sales 
     WHERE PRODUCT_CODE = {product_code} 
@@ -26,8 +36,8 @@ def retrieve_data(product_code: int, store_code: int, date: list):
     ORDER BY DATE;
     """ 
 
-    dataframe = pd.read_sql(query, engine)
+    # Executa a query usando a engine fornecida e carrega o resultado já como um dataframe
+    df = pd.read_sql(query, engine)
     
-    return dataframe
-
-print(retrieve_data(18, 1, ['2019-01-01', '2019-01-31']))
+    # Retorna o dataframe
+    return df
