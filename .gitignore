@@ -20,9 +20,6 @@ __pycache__/
 dist/
 build/
 
-# Outputs gerados (opcional: remova se quiser versionar os PDFs/imagens)
-outputs/
-
 # Sistema
 .DS_Store
 Thumbs.db
