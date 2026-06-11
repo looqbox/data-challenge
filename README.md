@@ -95,7 +95,7 @@ data-challenge/
 Com o ambiente virtual ativado e o `.env` configurado, rode:
 
 ```bash
-python main.py
+python looqbox_challenge.py
 ```
 
 Isso executa em sequência:
