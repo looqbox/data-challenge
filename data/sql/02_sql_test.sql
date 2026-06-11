@@ -1,0 +1,6 @@
+SELECT DISTINCT DEP_NAME AS Departamento,
+                SECTION_NAME AS Seção,
+                SECTION_COD AS Cod_Seção
+FROM data_product
+WHERE DEP_NAME IN ('BEBIDAS', 'PADARIA')
+ORDER BY DEP_NAME, SECTION_NAME;

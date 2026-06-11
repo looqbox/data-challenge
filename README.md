@@ -1,168 +1,166 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
-
 # Looqbox Data Challenge
-![Looqbox](https://github.com/looqbox/data-challenge/blob/master/logo.png)
 
-## Accessing the database
-You will need to access our MySQL database for this challenge. The database credentials will be sent to you by e-mail.
+Solução completa do desafio técnico da Looqbox, cobrindo SQL Test, Cases 1–3 e geração de relatório PDF consolidado.
 
-## Challenge
-### Tables descriptions (you can click on them to see the columns on each table)
- <details>
-  <summary><b> DATA_PRODUCT: PRODUCT INFO</b></summary>
+---
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| PRODUCT_COD  | PRODUCT CODE                                       |
-| PRODUCT_NAME | PRODUCT FULL NAME                                  |
-| PRODUCT_VAL  | PRODUCT SALES VALUE                                |
-| DEP_NAME     | NAME OF THE DEPARTMENT RESPONSIBLE FOR THE PRODUCT |
-| DEP_COD      | CODE OF THE DEPARTMENT RESPONSIBLE FOR THE PRODUCT |
-| SECTION_NAME | NAME OF THE SECTION WHERE THE PRODUCT IS           |
-| SECTION_COD  | CODE OF THE SECTION WHERE THE PRODUCT IS           |
+## Pré-requisitos
 
- </details>
-  
- <details>
-  <summary><b> DATA_PRODUCT_SALES: PRODUCT SALES</b></summary>
+- Python 3.10+
+- Acesso à rede com as credenciais do banco fornecidas pela Looqbox
+- Git
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| STORE_CODE   | STORE CODE                                         |
-| PRODUCT_CODE | PRODUCT CODE                                       |
-| DATE         | SALES DATE                                         |
-| SALES_VALUE  | SALES VALUES                                       |
-| SALES_QTY    | SALES QUANTITY                                     |
+---
 
-  
- </details>
- <details>
-  <summary><b> DATA_STORE_CAD: STORE INFO</b></summary>
+## Instalação
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| STORE_CODE   | STORE CODE                                         |
-| STORE_NAME   | STORE NAME                                         |
-| START_DATE   | SHOP OPENING DATE                                  |
-| END_DATA     | SHOP CLOSING DATE                                  |
-| BUSINESS_NAME| NAMES OF BUSINESS AREA RESPONSIBLE FOR THE SHOP    |
-| BUSINESS_CODE| CODE OF BUSINESS AREA RESPONSIBLE FOR THE SHOP     |
+```bash
+# 1. Clone o repositório (após fazer o fork)
+git clone https://github.com/SEU_USUARIO/data-challenge.git
+cd data-challenge
 
- </details>
- <details>
-  <summary><b> DATA_STORE_SALES: SALES PER STORE</b></summary>
+# 2. Crie e ative o ambiente virtual
+python -m venv .venv
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| STORE_CODE   | STORE CODE                                         |
-| DATE         | COMMERCIAL DATE                                    |
-| SALES_VALUE  | TOTAL VALUE OF SALES IN THAT DATE                  |
-| SALES_QTY    | TOTAL QUANTITY OF SALES IN THAT DATE               |
+# Windows
+.venv\Scripts\activate
 
- </details>
+# macOS/Linux
+source .venv/bin/activate
 
-### SQL test
-After accessing our database, create queries using the schema **looqbox_challenge** to answer the following questions:
+# 3. Instale as dependências
+pip install -r requirements.txt
+```
 
-1) What are the 10 most expensive products in the company?
-2) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
-3) What was the total sale of products (in $) of each Business Area in the first quarter of 2019?
+---
 
-### Cases
-#### 1) The Dev Team was tired of developing the same old queries just varying the filters accordingly to their boss demands.
-As a new member of the crew, your mission now is to create a dynamic function in Python, on the most flexible of ways, to produce queries and retrieve a dataframe based on three parameters:
+## Configuração
 
-- product_code: integer
+Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
 
-- store_code: integer
+```bash
+cp .env.example .env
+```
 
-- date: list of ISO-like strings
+Preencha com as credenciais recebidas por e-mail:
 
-- Date e.g.
-  - ['2019-01-01', '2019-01-31']
+```env
+DB_HOST=35.199.115.174
+DB_USER=looqbox-challenge
+DB_PASSWORD=looq-challenge
+DB_NAME=looqbox_challenge
+```
 
-It should look like this
-my_data = retrieve_data(product_code, store_code, date)
+> O arquivo `.env` está no `.gitignore` e nunca será versionado.
 
-Make your team proud!
+---
 
-Extra instructions:
-- Retrieve all columns from table data_product_sales;
-- Imagine people from other teams will also utilize this function!
-
-#### 2) A brand new client sent you two ready-to-go queries. Those are listed below:
-
-Query 1:
+## Estrutura do projeto
 
 ```
-SELECT
-      STORE_CODE,
-      STORE_NAME,
-      START_DATE,
-      END_DATE,
-      BUSINESS_NAME,
-      BUSINESS_CODE
-FROM data_store_cad
+data-challenge/
+│
+├── cases/
+│   ├── __init__.py
+│   ├── sql_test.py         # SQL Test — Q1, Q2, Q3
+│   ├── case1.py            # Função dinâmica retrieve_data
+│   ├── case2.py            # Ticket Médio por loja (Q4 2019)
+│   └── case3.py            # Análise e visualização IMDB
+│
+├── config/
+│   ├── __init__.py
+│   └── database.py         # Conexão MySQL via variáveis de ambiente
+│
+├── data/
+│   └── sql/                # Arquivos .sql das queries
+│
+├── outputs/                # PDFs e imagens gerados (ignorado pelo git)
+│
+├── utils/
+│   └── generate_report.py  # Gerador de PDF com identidade Looqbox
+│
+├── .env                    # Credenciais locais (não versionado)
+├── .env.example            # Modelo de variáveis de ambiente
+├── .gitignore
+├── logo.png                # Logo Looqbox (usada na capa do PDF)
+├── main.py                 # Ponto de entrada — executa tudo
+├── requirements.txt
+└── README.md
 ```
-Query 2:
 
+---
+
+## Execução
+
+Com o ambiente virtual ativado e o `.env` configurado, rode:
+
+```bash
+python main.py
 ```
-SELECT
-        STORE_CODE,
-        DATE,
-        SALES_VALUE,
-        SALES_QTY
-FROM data_store_sales
-WHERE DATE BETWEEN '2019-01-01' AND '2019-12-31'
+
+Isso executa em sequência:
+
+1. **SQL Test** — três queries contra o banco Looqbox
+2. **Case 1** — demonstração da função `retrieve_data`
+3. **Case 2** — cálculo do Ticket Médio e geração do gráfico
+4. **Case 3** — análise IMDB e geração das visualizações
+5. **PDF** — relatório consolidado salvo em `outputs/looqbox_report.pdf`
+
+---
+
+## Cases
+
+### SQL Test
+
+Três queries respondendo:
+
+- **Q1** — 10 produtos mais caros (`ORDER BY PRODUCT_VAL DESC LIMIT 10`)
+- **Q2** — Seções dos departamentos BEBIDAS e PADARIA
+- **Q3** — Vendas totais por Business Area no Q1 2019
+
+### Case 1 — `retrieve_data`
+
+Função dinâmica que aceita filtros opcionais e constrói a query em tempo de execução:
+
+```python
+from cases.case1 import retrieve_data
+
+# Sem filtros — retorna tudo
+df = retrieve_data()
+
+# Com filtros combinados
+df = retrieve_data(
+    product_code=301409,
+    store_code=3,
+    date=["2019-01-01", "2019-03-31"],
+)
 ```
-In addition, he gave you this set of instructions:
 
-- Use the queries as they are (do not modify them or create a new one);
+Todos os parâmetros são opcionais. Parâmetros ausentes são simplesmente ignorados na cláusula `WHERE`.
 
-- Please filter the period between this given range: 
-  - ['2019-10-01','2019-12-31']
+### Case 2 — Ticket Médio
 
+- Usa as duas queries do cliente **sem modificação**
+- Filtro de período `['2019-10-01', '2019-12-31']` aplicado em Python
+- Ticket Médio calculado como `SALES_VALUE / SALES_QTY` por loja
+- Gráfico de barras horizontal salvo em `outputs/case2_ticket_medio.png`
 
-<details>
- <summary><b> We are in need of this visualization (click here to see it)! Please, create it with Python</b></summary>
-  
-| Loja           | Categoria   | TM    | 
-|----------------|-------------|-------| 
-| Bahia          | Atacado     | 15.39 | 
-| Bangkok        | Posto       | 13.67 | 
-| Belem          | Proximidade | 15.37 | 
-| Berlin         | Proximidade | 15.39 | 
-| Buenos Aires   | Atacado     | 15.39 | 
-| Chicago        | Varejo      | 15.53 | 
-| Dubai          | Atacado     | 15.39 | 
-| Hong Kong      | Farma       | 26.35 | 
-| London         | Farma       | 28.99 | 
-| Madri          | Farma       | 29.03 | 
-| Miami          | Posto       | 13.67 | 
-| New York       | Proximidade | 15.39 | 
-| Paris          | Proximidade | 15.39 | 
-| Rio de Janeiro | Farma       | 29.59 | 
-| Roma           | Varejo      | 15.39 | 
-| Salvador       | Atacado     | 15.39 | 
-| Sao Paulo      | Varejo      | 15.39 | 
-| Sidney         | Posto       | 13.67 | 
-| Tokio          | Varejo      | 15.39 | 
-| Vancouver      | Posto       | 13.67 | 
-  
-</details>
+### Case 3 — IMDB
 
-#### 3) Building your own visualization
+- **Violin plot** de notas por década: revela a distribuição completa, não apenas a média — evidenciando o viés de sobrevivência de filmes antigos
+- **Bar chart horizontal** dos top 10 gêneros por nota média (mínimo 20 filmes)
+- Imagens salvas em `outputs/`
 
-Create at least one chart using the table **IMDB_movies**. The code must be in Python, and you are free to use any libraries, data in the table and graphic format. Explain why you chose the visualization (or visualizations) you are submitting.
+---
 
-## Stack
-- MySQL database 
-- Python
+## Dependências principais
 
-## Submitting
-- Send an e-mail to the person that you are in contact within Looqbox!
-- Your answer must be sent in PDF format with the code snippets used in each question, as well as the result obtained (values, tables, graphs)
-
-## Useful links
-- [MySQL documentation](https://dev.mysql.com/doc/)
-- [Data Visualization Catalogue](https://datavizcatalogue.com/)
+| Pacote | Uso |
+|---|---|
+| `mysql-connector-python` | Conexão com o banco MySQL |
+| `pandas` | Manipulação de dados |
+| `matplotlib` | Gráficos |
+| `seaborn` | Violin plot e estilização |
+| `reportlab` | Geração do PDF |
+| `Pillow` | Processamento da logo no PDF |
+| `python-dotenv` | Leitura do `.env` |

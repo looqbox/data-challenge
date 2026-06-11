@@ -1,0 +1,7 @@
+SELECT
+        STORE_CODE,
+        DATE,
+        SALES_VALUE,
+        SALES_QTY
+FROM data_store_sales
+WHERE DATE BETWEEN '2019-01-01' AND '2019-12-31'
