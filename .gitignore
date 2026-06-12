@@ -1,0 +1,26 @@
+# Credenciais — NUNCA versionar
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Scratch / saídas temporárias
+output/
+scratch/
+
+# PDF da solução (entregue via formulário, não versionado)
+*.pdf
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
