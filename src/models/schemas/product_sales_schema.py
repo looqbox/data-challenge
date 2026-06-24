@@ -1,3 +1,10 @@
+"""
+Shemas de dados - 
+Como vamos enviar dados para o banco de dados,
+a camada de schema evita que seja enviado o tipo errado e ataques externos
+
+IA - Ajuda com o formato e tratamento com datas
+"""
 from pydantic import BaseModel
 from typing import Optional, List, ClassVar, Dict
 from datetime import datetime

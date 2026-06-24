@@ -1,0 +1,56 @@
+"""
+teste de variação dos filtro - repositores 
+
+IA - teste feito com IA 
+
+eu gosto de deixar a contrução de testes 
+pois ela abrange uma variedade maior dos erros que podem acontecer no processo 
+"""
+
+# tests/test_store_repository.py
+import pytest
+import pandas as pd
+from src.models.repositories.store_repository import StoreRepository
+
+
+@pytest.fixture(scope="module")
+def repo():
+    return StoreRepository()
+
+
+# ── get_store_cad ───────────────────────────────────────────────────────────
+
+def test_store_cad_retorna_dataframe(repo):
+    result = repo.get_store_cad()
+    print("\n=== store_cad ===")
+    print(result.head(5))
+    assert isinstance(result, pd.DataFrame)
+    assert len(result) > 0
+
+
+def test_store_cad_colunas(repo):
+    result = repo.get_store_cad()
+    esperadas = ["STORE_CODE", "STORE_NAME", "START_DATE", "END_DATE", "BUSINESS_NAME", "BUSINESS_CODE"]
+    assert list(result.columns) == esperadas
+
+
+# ── get_store_sales ─────────────────────────────────────────────────────────
+
+def test_store_sales_retorna_dataframe(repo):
+    result = repo.get_store_sales()
+    print("\n=== store_sales ===")
+    print(result.head(5))
+    assert isinstance(result, pd.DataFrame)
+    assert len(result) > 0
+
+
+def test_store_sales_colunas(repo):
+    result = repo.get_store_sales()
+    esperadas = ["STORE_CODE", "DATE", "SALES_VALUE", "SALES_QTY"]
+    assert list(result.columns) == esperadas
+
+
+def test_store_sales_periodo(repo):
+    result = repo.get_store_sales()
+    assert result["DATE"].min() >= "2019-01-01"
+    assert result["DATE"].max() <= "2019-12-31"

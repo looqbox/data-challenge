@@ -1,3 +1,7 @@
+"""
+Acesso ao banco de dados
+faz a contrução da query, ela mantem a segurança de conexão 
+"""
 from src.models.config.connection import DBConnectionHandler
 import pandas as pd
 from sqlalchemy import select, column, table, and_, between

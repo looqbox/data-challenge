@@ -1,3 +1,7 @@
+"""
+teste para verificar a conexçao com o banco - connection.py
+IA - teste padrão utilizado a muito tempo, refinado com IA
+"""
 from src.models.config.connection import DBConnectionHandler
 from sqlalchemy import text 
 

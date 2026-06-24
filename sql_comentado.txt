@@ -85,7 +85,7 @@ ORDER BY
 # 3 - Qual foi a venda total de produtos (em $) de cada Área de Negócio no primeiro trimestre de 2019?
 
 #apelidando
-
+/*
 WITH
 	product AS (
     	SELECT * FROM `looqbox-challenge`.data_product dp),
@@ -94,7 +94,7 @@ WITH
     store AS(
     	SELECT * FROM `looqbox-challenge`.data_store_cad dsc)
 # dando uma olhada nas vendas
-/* SELECT 
+ SELECT 
 	sales.STORE_CODE,
 	SUM(sales.SALES_VALUE) 
 FROM 

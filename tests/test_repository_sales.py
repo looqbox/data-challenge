@@ -1,3 +1,12 @@
+"""
+teste de variação dos filtro - repositores 
+
+IA - teste feito com IA 
+
+eu gosto de deixar a contrução de testes 
+pois ela abrange uma variedade maior dos erros que podem acontecer no processo 
+"""
+
 import pytest
 import pandas as pd
 from src.models.repositories.sales_repository import SalesRepository
@@ -38,7 +47,8 @@ def test_so_store_code(repo):
     print(result.head(5))
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
-    assert result["STORE_CODE"].unique().tolist() == [1]
+    # Convertido para string na comparação para bater com o retorno do banco
+    assert [str(x) for x in result["STORE_CODE"].unique().tolist()] == ["1"]
 
 
 # ── filtro só por data — início e fim ───────────────────────────────────────
@@ -49,8 +59,9 @@ def test_data_inicio_e_fim(repo):
     print(result.head(5))
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
-    assert result["DATE"].min() >= "2019-01-01"
-    assert result["DATE"].max() <= "2019-01-31"
+    # Converte o objeto datetime.date para string para poder comparar com '2019-01-01'
+    assert result["DATE"].min().strftime('%Y-%m-%d') >= "2019-01-01"
+    assert result["DATE"].max().strftime('%Y-%m-%d') <= "2019-01-31"
 
 
 # ── filtro só por data — só início ──────────────────────────────────────────
@@ -61,7 +72,7 @@ def test_data_so_inicio(repo):
     print(result.head(5))
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
-    assert result["DATE"].min() >= "2019-06-01"
+    assert result["DATE"].min().strftime('%Y-%m-%d') >= "2019-06-01"
 
 
 # ── filtro só por data — só fim ─────────────────────────────────────────────
@@ -72,7 +83,7 @@ def test_data_so_fim(repo):
     print(result.head(5))
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
-    assert result["DATE"].max() <= "2019-03-31"
+    assert result["DATE"].max().strftime('%Y-%m-%d') <= "2019-03-31"
 
 
 # ── combinações ─────────────────────────────────────────────────────────────
@@ -84,7 +95,7 @@ def test_produto_e_loja(repo):
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
     assert result["PRODUCT_CODE"].unique().tolist() == [18]
-    assert result["STORE_CODE"].unique().tolist() == [1]
+    assert [str(x) for x in result["STORE_CODE"].unique().tolist()] == ["1"]
 
 
 def test_produto_e_data(repo):
@@ -94,8 +105,8 @@ def test_produto_e_data(repo):
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
     assert result["PRODUCT_CODE"].unique().tolist() == [18]
-    assert result["DATE"].min() >= "2019-01-01"
-    assert result["DATE"].max() <= "2019-01-31"
+    assert result["DATE"].min().strftime('%Y-%m-%d') >= "2019-01-01"
+    assert result["DATE"].max().strftime('%Y-%m-%d') <= "2019-01-31"
 
 
 def test_loja_e_data(repo):
@@ -104,9 +115,9 @@ def test_loja_e_data(repo):
     print(result.head(5))
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
-    assert result["STORE_CODE"].unique().tolist() == [1]
-    assert result["DATE"].min() >= "2019-01-01"
-    assert result["DATE"].max() <= "2019-01-31"
+    assert [str(x) for x in result["STORE_CODE"].unique().tolist()] == ["1"]
+    assert result["DATE"].min().strftime('%Y-%m-%d') >= "2019-01-01"
+    assert result["DATE"].max().strftime('%Y-%m-%d') <= "2019-01-31"
 
 
 def test_todos_os_filtros(repo):
@@ -116,6 +127,6 @@ def test_todos_os_filtros(repo):
     assert isinstance(result, pd.DataFrame)
     assert len(result) > 0
     assert result["PRODUCT_CODE"].unique().tolist() == [18]
-    assert result["STORE_CODE"].unique().tolist() == [1]
-    assert result["DATE"].min() >= "2019-01-01"
-    assert result["DATE"].max() <= "2019-01-31"
+    assert [str(x) for x in result["STORE_CODE"].unique().tolist()] == ["1"]
+    assert result["DATE"].min().strftime('%Y-%m-%d') >= "2019-01-01"
+    assert result["DATE"].max().strftime('%Y-%m-%d') <= "2019-01-31"
