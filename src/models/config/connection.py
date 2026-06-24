@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 
 
 class DBConnectionHandler:
@@ -12,7 +12,8 @@ class DBConnectionHandler:
         self.session = None
 
     def __create_database_engine(self):
-        engine = create_engine(self.__connection_string)
+        engine = create_engine(self.__connection_string,
+                                pool_pre_ping=True)
         return engine
 
     def get_engine(self):
@@ -24,4 +25,6 @@ class DBConnectionHandler:
         return self.session
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.session.close()
+        self.session.close()             
+
+        

@@ -1,0 +1,135 @@
+# testando a base 
+/*select * from data_product;*/
+
+# apelidando
+WITH product AS (
+    SELECT * FROM `looqbox-challenge`.data_product
+)
+
+# 1 - Quais são os 10 produtos mais caros da empresa?
+
+# teste de duplicatas pelo nome- tem duplicatas :( 
+/*SELECT 
+	product.PRODUCT_NAME,
+	COUNT(*) as qtd
+FROM data_product as product
+GROUP BY
+	product.PRODUCT_NAME
+ORDER BY 
+	qtd DESC;
+*/
+
+# teste de duplicatas pelo codigo -  sem duplicatas 
+/*SELECT
+	product.PRODUCT_COD,
+	COUNT(*) as qtd
+FROM data_product as product
+GROUP BY 
+	product.PRODUCT_COD 
+ORDER BY 
+	qtd DESC;
+*/
+
+# resposta 
+SELECT
+	product.PRODUCT_COD,
+	product.PRODUCT_NAME,
+	product.PRODUCT_VAL 
+FROM data_product AS product
+ORDER BY
+	product.PRODUCT_VAL DESC
+LIMIT
+	10
+;
+
+
+# 2 - Quais seções os departamentos 'BEBIDAS' e 'PADARIA' têm?
+
+# teste
+/*SELECT 
+	product.DEP_NAME, 
+	product.SECTION_COD,
+	product.SECTION_NAME,
+	COUNT(*) as qtd_product
+FROM data_product as product
+WHERE 
+	product.DEP_NAME = "BEBIDAS" OR  product.DEP_NAME = "PADARIA"
+GROUP BY 
+	product.DEP_NAME,
+	product.SECTION_COD,
+	product.SECTION_NAME 
+ORDER BY 
+	product.DEP_NAME 
+;
+*/
+
+# doble check - gestantes me pareceu suspeito
+/*SELECT *
+from data_product as product 
+WHERE product.SECTION_NAME = "GESTANTE"
+*/
+
+# resposta
+SELECT DISTINCT
+	product.DEP_NAME, 
+	product.SECTION_NAME
+FROM data_product as product
+WHERE
+	product.DEP_NAME IN ("BEBIDAS", "PADARIA")
+ORDER BY 
+	product.DEP_NAME desc
+;
+
+
+
+# 3 - Qual foi a venda total de produtos (em $) de cada Área de Negócio no primeiro trimestre de 2019?
+
+#apelidando
+
+WITH
+	product AS (
+    	SELECT * FROM `looqbox-challenge`.data_product dp),
+    sales AS(
+    	SELECT * FROM `looqbox-challenge`.data_product_sales),
+    store AS(
+    	SELECT * FROM `looqbox-challenge`.data_store_cad dsc)
+# dando uma olhada nas vendas
+/* SELECT 
+	sales.STORE_CODE,
+	SUM(sales.SALES_VALUE) 
+FROM 
+	sales
+GROUP BY 
+	sales.STORE_CODE
+ORDER BY 
+	sales.STORE_CODE ASC;
+*/
+#dando uma olhada nos negocios
+/*SELECT DISTINCT 
+	store.BUSINESS_CODE,
+	store.BUSINESS_NAME
+FROM store;*/
+# resposta
+
+WITH
+	product AS (
+    	SELECT * FROM `looqbox-challenge`.data_product dp),
+    sales AS(
+    	SELECT * FROM `looqbox-challenge`.data_product_sales),
+    store AS(
+    	SELECT * FROM `looqbox-challenge`.data_store_cad dsc)
+SELECT  
+	store.BUSINESS_NAME,
+	COALESCE(SUM(sales.SALES_VALUE), 0) as FIRST_TRI_SALES
+FROM  store
+Left JOIN sales # left tras todas as áres, até as zeradas
+ON 
+	store.STORE_CODE  = sales.STORE_CODE
+WHERE 
+	sales.`DATE` 
+	BETWEEN
+		'2019-01-01' AND '2019-03-31'
+GROUP BY 
+	store.BUSINESS_NAME 
+;
+
