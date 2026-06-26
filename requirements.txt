@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly>=5.18
+statsmodels
+matplotlib
+mysql-connector-python
+python-dotenv
