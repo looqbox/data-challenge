@@ -1,0 +1,9 @@
+# Variáveis de ambiente / credenciais
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/

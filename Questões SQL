@@ -1,0 +1,24 @@
+-- Primeira pergunta: What are the 10 most expensive products in the company?
+select * from data_product dp 
+order by dp.PRODUCT_VAL DESC 
+LIMIT 10;
+
+-- Segunda pergunta: What sections do the 'BEBIDAS' and 'PADARIA' departments have?
+Select distinct SECTION_NAME from data_product dp 
+where dp.DEP_NAME = 'BEBIDAS' or dp.DEP_NAME = 'PADARIA'; -- o indicado aqui seria usar o código de cada DEP para evitar que no db possa haver erro de escrita ou registro 
+-- alternativa 2: dp.DEP_NAME IN ('BEBIDAS', 'PADARIA')
+
+-- Terceira pergunta: What was the total sale of products (in $) of each Business Area in the first quarter of 2019?
+
+SELECT 
+    dsc.BUSINESS_NAME,
+    SUM(dps.SALES_VALUE) AS TOTAL_SALES_VALUE
+FROM 
+    data_product_sales dps 
+INNER JOIN -- garantir que o que não tem  store_code definido não entrará na avaliação
+    data_store_cad dsc ON dps.STORE_CODE = dsc.STORE_CODE
+WHERE 
+    dps.DATE BETWEEN '2019-01-01' AND '2019-03-31'
+GROUP BY 
+    dsc.BUSINESS_NAME;
+
