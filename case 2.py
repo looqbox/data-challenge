@@ -41,8 +41,7 @@ engine = _get_engine()
 df_store = pd.read_sql(QUERY_1, engine)
 df_sales = pd.read_sql(QUERY_2, engine)
 
-# Filtro do período pedido pelo cliente ['2019-10-01','2019-12-31'],
-# feito em pandas -- a query 2 não pode ser modificada.
+
 df_sales["DATE"] = pd.to_datetime(df_sales["DATE"])
 df_sales = df_sales[
     (df_sales["DATE"] >= "2019-10-01") & (df_sales["DATE"] <= "2019-12-31")
@@ -57,7 +56,7 @@ agg = (
 agg["TM"] = agg["SALES_VALUE"] / agg["SALES_QTY"]
 agg = agg.sort_values("STORE_NAME")
 
-# --- Visualização ---
+# Visualização
 fig, ax = plt.subplots(figsize=(12, 6))
 sns.barplot(data=agg, x="STORE_NAME", y="TM", hue="BUSINESS_NAME", ax=ax)
 ax.set_xlabel("Loja")
