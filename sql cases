@@ -1,0 +1,21 @@
+1.
+  STORE_CODE  PRODUCT_CODE        DATE  SALES_VALUE  SALES_QTY
+0          1            18  2019-01-01        708.5       65.0
+1          1            18  2019-01-02       1297.1      119.0
+2          1            18  2019-01-03       1144.5      105.0
+3          1            18  2019-01-04       1090.0      100.0
+4          1            18  2019-01-05        893.8       82.0
+
+pensando na funcao de outros times usarem a ferramenta, "seta" os dados do env no inicio  
+
+função: recebe 3 filtros opcionais, monta o WHERE dinamico com
+as condições informadas, e devolve um DataFrame pronto pra analise.
+
+2.
+
+da mesma forma que o case 1, o case 2 possui a mesma função de setar os dados do envpara caso outros times usem a ferramenta,
+ao setar os dados no terminal (exemplo: DB_HOST, DB_USER, etc), ao rodar o codigo os dados vão 
+plotar na tela(tambem será salvoa em um png), de acordo com as duas queries fornecidas.
+por isso, o filtro de período pedido (out-dez/2019) foi aplicado em pandas após o retorno dos dados, já que a query 2 já 
+vem com seu próprio filtro hardcoded no sql.
+

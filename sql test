@@ -1,0 +1,24 @@
+1.
+
+SELECT dp.* FROM `looqbox-challenge`.data_product AS dp
+ORDER BY dp.PRODUCT_VAL DESC
+LIMIT 10
+
+2.
+
+SELECT DISTINCT DEP_NAME, SECTION_NAME
+FROM `looqbox-challenge`.data_product
+WHERE DEP_NAME IN ('BEBIDAS', 'PADARIA')
+ORDER BY DEP_NAME, SECTION_NAME
+
+3.
+
+SELECT
+    dsc.BUSINESS_NAME,
+    SUM(dps.SALES_VALUE) AS total_sale
+FROM `looqbox-challenge`.data_product_sales AS dps
+JOIN `looqbox-challenge`.data_store_cad AS dsc
+    ON dps.STORE_CODE = dsc.STORE_CODE
+WHERE dps.DATE BETWEEN '2019-01-01' AND '2019-03-31'
+GROUP BY dsc.BUSINESS_NAME
+ORDER BY total_sale DESC
