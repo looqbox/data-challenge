@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/><style>
+table {border: medium solid #6495ed;border-collapse: collapse;width: 100%;} th{font-family: monospace;border: thin solid #6495ed;padding: 5px;background-color: #D0E3FA;}th{text-align: left;}td{font-family: sans-serif;border: thin solid #6495ed;padding: 5px;text-align: center;}.odd{background:#e8edff;}img{padding:5px; border:solid; border-color: #dddddd #aaaaaa #aaaaaa #dddddd; border-width: 1px 2px 2px 1px; background-color:white;}</style>
+</head>
+<body>
+<table><tr><th colspan="2"><pre><code>SELECT<br>	dp.DEP_NAME,<br>	dp.SECTION_NAME<br>FROM data_product dp<br>WHERE dp.DEP_NAME = 'BEBIDAS' OR dp.DEP_NAME = 'PADARIA'<br>GROUP BY dp.DEP_NAME, dp.SECTION_NAME<br>ORDER BY dp.DEP_NAME ASC</code></pre></th></tr><tr><th>DEP_NAME</th><th>SECTION_NAME</th></tr><tr class="odd"><td>BEBIDAS</td><td>BEBIDAS</td></tr>
+<tr><td>BEBIDAS</td><td>CERVEJAS</td></tr>
+<tr class="odd"><td>BEBIDAS</td><td>REFRESCOS</td></tr>
+<tr><td>BEBIDAS</td><td>VINHOS</td></tr>
+<tr class="odd"><td>PADARIA</td><td>DOCES-E-SOBREMESAS</td></tr>
+<tr><td>PADARIA</td><td>GESTANTE</td></tr>
+<tr class="odd"><td>PADARIA</td><td>PADARIA</td></tr>
+<tr><td>PADARIA</td><td>QUEIJOS-E-FRIOS</td></tr>
+</table></body></html>

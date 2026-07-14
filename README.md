@@ -166,3 +166,31 @@ Create at least one chart using the table **IMDB_movies**. The code must be in P
 ## Useful links
 - [MySQL documentation](https://dev.mysql.com/doc/)
 - [Data Visualization Catalogue](https://datavizcatalogue.com/)
+
+## Solução
+
+Autor: Guilherme Grandim
+
+### Estrutura do Repositório
+- `01_sql_queries/` - queries SQL -> SQL Test
+- `02_retrieve_data/` - Função Dinamica -> 01_Case
+- `03_tm_visualization/` — Tabela Ticket Médio -> 02_Case
+- `04_imdb_chart/` - visualização IMDB -> 03_Case
+
+### Uso de IA
+- Dúvida de como inserir o pymysql - sintaxe
+url = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{dataset}")
+- Como inserir a linha de tendencia no Gráfico de dispersão da Hipótese 1
+    - trendline="ols" (pip install statsmodels)
+- Inserir o Ratings como cor no bar chart
+- Como testar a conexão no banco do MySQL
+- Pesquisa para renderizar os gráficos do Plotly no Jupyter Notebook no export em HTML
+
+    import plotly.io as pio
+    from plotly.offline import init_notebook_mode
+    
+    init_notebook_mode(connected=False)
+    pio.renderers.default = "notebook"
+    
+- Passar uma lista e um numero único na função retrieve_data (consulta de como usar o np.atleast_1d)
+- utilização da biblioteca sqlalchemy
