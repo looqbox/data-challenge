@@ -1,168 +1,184 @@
-### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
+# Teste técnico: Analista de Dados / BI
 
-# Looqbox Data Challenge
-![Looqbox](https://github.com/looqbox/data-challenge/blob/master/logo.png)
+---
 
-## Accessing the database
-You will need to access our MySQL database for this challenge. The database credentials will be sent to you by e-mail.
+## Acesso ao banco
 
-## Challenge
-### Tables descriptions (you can click on them to see the columns on each table)
- <details>
-  <summary><b> DATA_PRODUCT: PRODUCT INFO</b></summary>
+**As credenciais são enviadas por e-mail**, junto com o convite.
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| PRODUCT_COD  | PRODUCT CODE                                       |
-| PRODUCT_NAME | PRODUCT FULL NAME                                  |
-| PRODUCT_VAL  | PRODUCT SALES VALUE                                |
-| DEP_NAME     | NAME OF THE DEPARTMENT RESPONSIBLE FOR THE PRODUCT |
-| DEP_COD      | CODE OF THE DEPARTMENT RESPONSIBLE FOR THE PRODUCT |
-| SECTION_NAME | NAME OF THE SECTION WHERE THE PRODUCT IS           |
-| SECTION_COD  | CODE OF THE SECTION WHERE THE PRODUCT IS           |
+| Variável         | Conteúdo             |
+| ---------------- | -------------------- |
+| `TT_DB_HOST`     | Endereço do servidor |
+| `TT_DB_USER`     | Seu usuário          |
+| `TT_DB_PASSWORD` | Sua senha            |
 
- </details>
-  
- <details>
-  <summary><b> DATA_PRODUCT_SALES: PRODUCT SALES</b></summary>
+As tabelas das três questões estão no schema `looqbox-challenge-bi`.
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| STORE_CODE   | STORE CODE                                         |
-| PRODUCT_CODE | PRODUCT CODE                                       |
-| DATE         | SALES DATE                                         |
-| SALES_VALUE  | SALES VALUES                                       |
-| SALES_QTY    | SALES QUANTITY                                     |
+Não commite o `.env` e não o inclua na entrega.
 
-  
- </details>
- <details>
-  <summary><b> DATA_STORE_CAD: STORE INFO</b></summary>
+---
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| STORE_CODE   | STORE CODE                                         |
-| STORE_NAME   | STORE NAME                                         |
-| START_DATE   | SHOP OPENING DATE                                  |
-| END_DATA     | SHOP CLOSING DATE                                  |
-| BUSINESS_NAME| NAMES OF BUSINESS AREA RESPONSIBLE FOR THE SHOP    |
-| BUSINESS_CODE| CODE OF BUSINESS AREA RESPONSIBLE FOR THE SHOP     |
+## Questão 1: SQL
 
- </details>
- <details>
-  <summary><b> DATA_STORE_SALES: SALES PER STORE</b></summary>
+### Enunciado
 
-| COLUMN NAME  | COLUMN DESCRIPTION                                 |
-|--------------|----------------------------------------------------|
-| STORE_CODE   | STORE CODE                                         |
-| DATE         | COMMERCIAL DATE                                    |
-| SALES_VALUE  | TOTAL VALUE OF SALES IN THAT DATE                  |
-| SALES_QTY    | TOTAL QUANTITY OF SALES IN THAT DATE               |
+A diretoria comercial acompanha a performance das regionais contra a meta do
+mês. Você precisa entregar a consulta que alimenta esse acompanhamento.
 
- </details>
+Escreva **uma query** que retorne, por **regional**, referente a **julho de
+2026**:
 
-### SQL test
-After accessing our database, create queries using the schema **looqbox_challenge** to answer the following questions:
+1. faturamento líquido
+2. ticket médio
+3. peças por atendimento (PA)
+4. atingimento de meta
+5. variação de faturamento contra julho de 2025, considerando **apenas mesmas
+   lojas**
 
-1) What are the 10 most expensive products in the company?
-2) What sections do the 'BEBIDAS' and 'PADARIA' departments have?
-3) What was the total sale of products (in $) of each Business Area in the first quarter of 2019?
+Ordene do maior gap absoluto contra a meta para o menor.
 
-### Cases
-#### 1) The Dev Team was tired of developing the same old queries just varying the filters accordingly to their boss demands.
-As a new member of the crew, your mission now is to create a dynamic function in Python, on the most flexible of ways, to produce queries and retrieve a dataframe based on three parameters:
+### Fonte
 
-- product_code: integer
+O histórico cobre julho de 2025 e julho de 2026.
 
-- store_code: integer
+| Tabela       | Conteúdo                       |
+| ------------ | ------------------------------ |
+| `dim_loja`   | Cadastro de lojas              |
+| `fato_venda` | Movimento de venda, nível item |
+| `fato_meta`  | Meta por filial                |
 
-- date: list of ISO-like strings
+Não vamos passar o dicionário de dados. Levantar colunas, tipos e domínios faz
+parte da questão.
 
-- Date e.g.
-  - ['2019-01-01', '2019-01-31']
+### Entrega esperada
 
-It should look like this
-my_data = retrieve_data(product_code, store_code, date)
+- A query.
+- O resultado, com todas as regionais.
+- Um parágrafo curto com as premissas adotadas.
 
-Make your team proud!
+---
 
-Extra instructions:
-- Retrieve all columns from table data_product_sales;
-- Imagine people from other teams will also utilize this function!
+## Questão 2: Python, reconstrução de estoque
 
-#### 2) A brand new client sent you two ready-to-go queries. Those are listed below:
+### Enunciado
 
-Query 1:
+O time de suprimentos precisa saber **qual era o saldo de estoque de cada SKU em
+cada loja, dia a dia**. O sistema de origem grava apenas as movimentações, e não
+o saldo. Cabe a você reconstruir a curva diária a partir do histórico de
+movimentos, e depois apontar quais séries não fecham.
 
+Reconstrua o saldo **diário** por loja e SKU na janela de **2026-04-01 a
+2026-07-31**, e valide o resultado. Escreva estas duas funções:
+
+```python
+def reconstruir_saldo(df: pd.DataFrame, dt_ini: str, dt_fim: str) -> pd.DataFrame:
+    """Saldo diário por (loja, sku, dia).
+
+    Todos os dias do intervalo devem estar preenchidos para cada célula,
+    inclusive os dias sem nenhuma movimentação.
+    """
+
+
+def validar(saldo_df: pd.DataFrame) -> pd.DataFrame:
+    """Aponta as células cuja série de saldo é implausível, com o
+    diagnóstico de cada caso."""
 ```
-SELECT
-      STORE_CODE,
-      STORE_NAME,
-      START_DATE,
-      END_DATE,
-      BUSINESS_NAME,
-      BUSINESS_CODE
-FROM data_store_cad
-```
-Query 2:
 
-```
-SELECT
-        STORE_CODE,
-        DATE,
-        SALES_VALUE,
-        SALES_QTY
-FROM data_store_sales
-WHERE DATE BETWEEN '2019-01-01' AND '2019-12-31'
-```
-In addition, he gave you this set of instructions:
+### Fonte
 
-- Use the queries as they are (do not modify them or create a new one);
+Extraia o que precisar e traga para o pandas.
 
-- Please filter the period between this given range: 
-  - ['2019-10-01','2019-12-31']
+| Tabela                  | Conteúdo                 |
+| ----------------------- | ------------------------ |
+| `estoque_movimentacoes` | Movimentações de estoque |
 
+### Entrega esperada
 
-<details>
- <summary><b> We are in need of this visualization (click here to see it)! Please, create it with Python</b></summary>
-  
-| Loja           | Categoria   | TM    | 
-|----------------|-------------|-------| 
-| Bahia          | Atacado     | 15.39 | 
-| Bangkok        | Posto       | 13.67 | 
-| Belem          | Proximidade | 15.37 | 
-| Berlin         | Proximidade | 15.39 | 
-| Buenos Aires   | Atacado     | 15.39 | 
-| Chicago        | Varejo      | 15.53 | 
-| Dubai          | Atacado     | 15.39 | 
-| Hong Kong      | Farma       | 26.35 | 
-| London         | Farma       | 28.99 | 
-| Madri          | Farma       | 29.03 | 
-| Miami          | Posto       | 13.67 | 
-| New York       | Proximidade | 15.39 | 
-| Paris          | Proximidade | 15.39 | 
-| Rio de Janeiro | Farma       | 29.59 | 
-| Roma           | Varejo      | 15.39 | 
-| Salvador       | Atacado     | 15.39 | 
-| Sao Paulo      | Varejo      | 15.39 | 
-| Sidney         | Posto       | 13.67 | 
-| Tokio          | Varejo      | 15.39 | 
-| Vancouver      | Posto       | 13.67 | 
-  
-</details>
+- O código das duas funções.
+- O saldo reconstruído, em CSV.
+- O retorno da `validar`, com quantas células foram apontadas e por qual
+  diagnóstico.
+- **3 linhas** explicando o que você faria com essas células.
 
-#### 3) Building your own visualization
+---
 
-Create at least one chart using the table **IMDB_movies**. The code must be in Python, and you are free to use any libraries, data in the table and graphic format. Explain why you chose the visualization (or visualizations) you are submitting.
+## Questão 3: Case
+
+### Enunciado
+
+> O ticket médio da rede caiu 8,2% em julho contra junho. O diretor comercial
+> quer saber o motivo na reunião de segunda-feira, e quer uma recomendação.
+
+Faça o caminho completo: extraia o que precisar, analise e comunique.
+
+### Fonte
+
+O histórico cobre junho e julho de 2026.
+
+| Tabela                   | Conteúdo                          |
+| ------------------------ | --------------------------------- |
+| `case_vendas_cupom`      | Venda consolidada por cupom       |
+| `case_dim_categoria`     | Cadastro de categorias            |
+| `case_dim_loja_campanha` | Participação na campanha de julho |
+
+### Entrega esperada
+
+- **Uma página** para o diretor, com a conclusão no primeiro parágrafo.
+- As queries e o código que sustentam a análise.
+- Uma seção **"o que eu não consigo afirmar com esses dados, e as 3 perguntas
+  que eu faria antes da reunião"**. Cada pergunta deve ser uma que, respondida,
+  mudaria a sua recomendação. Diga o que mudaria.
+
+O último item vale 25% da nota do case sozinho. Não é preenchimento de
+formulário.
+
+---
 
 ## Stack
-- MySQL database 
-- Python
 
-## Submitting
-- Send an e-mail to the person that you are in contact within Looqbox!
-- Your answer must be sent in PDF format with the code snippets used in each question, as well as the result obtained (values, tables, graphs)
+- MySQL 8, acesso por credencial enviada por e-mail
+- Python 3.11 ou superior
+- **pandas como biblioteca principal de manipulação de dados**
 
-## Useful links
-- [MySQL documentation](https://dev.mysql.com/doc/)
+Python puro é aceito onde fizer sentido. Não aceitamos polars, PySpark, Dask ou
+qualquer engine distribuída: o volume aqui é pequeno de propósito, e o que se
+avalia é o seu raciocínio sobre o dado, não a sua escolha de engine.
+
+Para gráficos, use a biblioteca que preferir.
+
+---
+
+## Como entregar
+
+**Por e-mail**, respondendo o e-mail do convite. Dois arquivos:
+
+1. Um **PDF** com o código e os resultados de cada questão. É esse arquivo que
+   vamos ler. A organização é escolha sua, e conta.
+2. Um **zip** com os arquivos de código e as saídas geradas.
+
+Não inclua o `.env` nem credenciais.
+
+**Não abra pull request e não faça fork deste repositório.** Entrega via git é
+pública: expõe as suas respostas para os outros candidatos e anula a sua
+avaliação.
+
+Prazo: 5 dias corridos a partir do e-mail de convite.
+
+---
+
+## Orientações
+
+- Sempre que o enunciado for ambíguo, decida e registre a premissa. Premissa
+  declarada vale ponto. Premissa escondida no código custa ponto.
+- Preferimos uma entrega menor e validada a uma entrega completa e não
+  conferida. Se faltar tempo, corte escopo e diga o que cortou.
+- Se algo travar no acesso ao banco, responda o e-mail do convite. Tempo perdido
+  em configuração de ambiente não conta contra você.
+
+---
+
+## Links úteis
+
+- [Documentação do pandas](https://pandas.pydata.org/docs/)
 - [Data Visualization Catalogue](https://datavizcatalogue.com/)
+- [Guia de estilo PEP 8](https://peps.python.org/pep-0008/)
