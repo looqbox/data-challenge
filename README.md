@@ -1,6 +1,9 @@
-# Teste técnico: Analista de Dados / BI
+### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
 
----
+# Looqbox Data Challenge
+![Looqbox](https://github.com/looqbox/data-challenge/blob/master/logo.png)
+
+## Teste técnico: Analista de Dados / BI
 
 ## Acesso ao banco
 
