@@ -53,7 +53,7 @@ Ordene do maior gap absoluto contra a meta para o menor.
 ---
 ## Questão 2: Reconstrução de estoque
 
-### A) Saldo diários
+### A) Saldo diário
 
 O time de suprimentos precisa saber **qual o saldo de estoque de cada SKU em
 cada loja, dia a dia**. O sistema de origem grava apenas as movimentações, e não
