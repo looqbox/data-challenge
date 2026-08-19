@@ -17,8 +17,6 @@
 
 As tabelas das três questões estão no schema `looqbox-challenge-bi`.
 
-Não commite o `.env` e não o inclua na entrega.
-
 ---
 
 ## Questão 1: SQL
@@ -50,58 +48,81 @@ O histórico cobre julho de 2025 e julho de 2026.
 | `fato_venda` | Movimento de venda, nível item |
 | `fato_meta`  | Meta por filial                |
 
-Não vamos passar o dicionário de dados. Levantar colunas, tipos e domínios faz
-parte da questão.
-
 ### Entrega esperada
 
-- A query.
+- A query desenvolvida.
 - O resultado, com todas as regionais.
 - Um parágrafo curto com as premissas adotadas.
 
 ---
 
-## Questão 2: Python, reconstrução de estoque
+## Questão 2a: Python, reconstrução da curva diária
 
 ### Enunciado
 
 O time de suprimentos precisa saber **qual era o saldo de estoque de cada SKU em
 cada loja, dia a dia**. O sistema de origem grava apenas as movimentações, e não
-o saldo. Cabe a você reconstruir a curva diária a partir do histórico de
-movimentos, e depois apontar quais séries não fecham.
+o estoque em si. Cabe a você reconstruir a curva diária a partir do histórico de
+movimentos, e depois apontar se há inconsistências físicas.
 
 Reconstrua o saldo **diário** por loja e SKU na janela de **2026-04-01 a
-2026-07-31**, e valide o resultado. Escreva estas duas funções:
+2026-07-31**, usando **apenas** o que está em `movimentacoes`, e valide o
+resultado. Escreva estas duas funções:
 
 ```python
-def reconstruir_saldo(df: pd.DataFrame, dt_ini: str, dt_fim: str) -> pd.DataFrame:
+def reconstruir_saldo(...) -> pd.DataFrame:
     """Saldo diário por (loja, sku, dia).
 
     Todos os dias do intervalo devem estar preenchidos para cada célula,
     inclusive os dias sem nenhuma movimentação.
     """
 
-
-def validar(saldo_df: pd.DataFrame) -> pd.DataFrame:
-    """Aponta as células cuja série de saldo é implausível, com o
-    diagnóstico de cada caso."""
 ```
 
 ### Fonte
 
-Extraia o que precisar e traga para o pandas.
-
 | Tabela                  | Conteúdo                 |
 | ----------------------- | ------------------------ |
-| `estoque_movimentacoes` | Movimentações de estoque |
+| `movimentacoes` | Movimentações de estoque |
 
 ### Entrega esperada
 
-- O código das duas funções.
+- O código utilizado para extrair e tratar os dados.
 - O saldo reconstruído, em CSV.
-- O retorno da `validar`, com quantas células foram apontadas e por qual
-  diagnóstico.
-- **3 linhas** explicando o que você faria com essas células.
+
+---
+
+## Questão 2b: Python, fechamento do período
+
+### Enunciado
+
+Suprimentos conseguiu a **contagem física do dia 2026-04-01**: a foto do estoque
+no primeiro dia da janela, loja a loja e SKU a SKU. Ela não está no banco, veio
+em planilha. Com ela na mão, a pergunta vira outra: **qual é o estoque no dia
+2026-07-14?**
+
+```python
+def gerar_estoque_dia(...) -> pd.DataFrame:
+    """Estoque por (loja, sku), partindo da foto de 2026-04-01."""
+```
+
+### Fonte
+
+Duas fontes, em lugares diferentes. Elas não cobrem exatamente o mesmo conjunto
+de células: decida o que fazer com quem aparece só de um lado, e registre a
+decisão.
+
+| Fonte                       | Onde está                            | Conteúdo                                     |
+| --------------------------- |--------------------------------------| -------------------------------------------- |
+| `estoque_foto_inicial.csv`  | arquivo no repositório               | Contagem física por loja e SKU em 01/04/2026 |
+| `movimentacoes`             | banco, schema `looqbox-challenge-bi` | Movimentações de estoque              |
+
+### Entrega esperada
+
+- O código da função.
+- Um **CSV** `estoque_20260714.csv` com as colunas `loja`, `sku`, `qtd`.
+- Responda brevemente: existe alguma inconsistência nas bases apresentadas? Se 
+sim, quais seriam e quais suas possíveis causas?
 
 ---
 
@@ -126,20 +147,17 @@ O histórico cobre junho e julho de 2026.
 
 ### Entrega esperada
 
-- **Uma página** para o diretor, com a conclusão no primeiro parágrafo.
+- **Uma página** para o diretor, com a conclusão no primeiro parágrafo e, ao menos, uma visualização.
 - As queries e o código que sustentam a análise.
 - Uma seção **"o que eu não consigo afirmar com esses dados, e as 3 perguntas
   que eu faria antes da reunião"**. Cada pergunta deve ser uma que, respondida,
   mudaria a sua recomendação. Diga o que mudaria.
 
-O último item vale 25% da nota do case sozinho. Não é preenchimento de
-formulário.
-
 ---
 
 ## Stack
 
-- MySQL 8, acesso por credencial enviada por e-mail
+- SQL, acesso por credencial enviada por e-mail
 - Python 3.11 ou superior
 - **pandas como biblioteca principal de manipulação de dados**
 
