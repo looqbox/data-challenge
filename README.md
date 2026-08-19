@@ -38,8 +38,6 @@ Ordene do maior gap absoluto contra a meta para o menor.
 
 ### Fonte
 
-O histórico cobre julho de 2025 e julho de 2026.
-
 | Tabela       | Conteúdo                       |
 | ------------ | ------------------------------ |
 | `dim_loja`   | Cadastro de lojas              |
