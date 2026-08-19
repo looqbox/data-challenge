@@ -67,7 +67,7 @@ movimentos, e depois apontar se há inconsistências físicas.
 
 Reconstrua o saldo **diário** por loja e SKU na janela de **2026-04-01 a
 2026-07-31**, usando **apenas** o que está em `movimentacoes`, e valide o
-resultado. Escreva estas duas funções:
+resultado. Escreva esta função:
 
 ```python
 def reconstruir_saldo(...) -> pd.DataFrame:
@@ -92,13 +92,12 @@ def reconstruir_saldo(...) -> pd.DataFrame:
 
 ---
 
-## Questão 2b: Python, fechamento do período
+## Questão 2b: Python, estoque no dia
 
 ### Enunciado
 
 Suprimentos conseguiu a **contagem física do dia 2026-04-01**: a foto do estoque
-no primeiro dia da janela, loja a loja e SKU a SKU. Ela não está no banco, veio
-em planilha. Com ela na mão, a pergunta vira outra: **qual é o estoque no dia
+no primeiro dia da janela, loja a loja e SKU a SKU. A pergunta é: **qual é o estoque no dia
 2026-07-14?**
 
 ```python
@@ -107,10 +106,6 @@ def gerar_estoque_dia(...) -> pd.DataFrame:
 ```
 
 ### Fonte
-
-Duas fontes, em lugares diferentes. Elas não cobrem exatamente o mesmo conjunto
-de células: decida o que fazer com quem aparece só de um lado, e registre a
-decisão.
 
 | Fonte                       | Onde está                            | Conteúdo                                     |
 | --------------------------- |--------------------------------------| -------------------------------------------- |
