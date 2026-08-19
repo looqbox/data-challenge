@@ -21,8 +21,6 @@ As tabelas das três questões estão no schema `looqbox-challenge-bi`.
 
 ## Questão 1: SQL
 
-### Enunciado
-
 A diretoria comercial acompanha a performance das regionais contra a meta do
 mês. Você precisa entregar a consulta que alimenta esse acompanhamento.
 
