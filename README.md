@@ -69,14 +69,16 @@ Construa o saldo **diário** por loja e SKU na janela de **2026-04-01 a
 
 - Salve o resultado em um arquivo CSV: chamado saldo_diario.csv;
 
-### B) Reconstruo o estoque
-Após alguns dias da sua entrega, o estagiário da área encontrou um arquivo csv com
-o estoque por loja e SKU do dia 2026-07-31. Apartir desse csv, você deve reconstruir
-o estoque diário do período de 2026-04-01 a 2026-07-31.
+### B) Reconstrua o estoque
+Após alguns dias da sua entrega, o estagiário da área encontrou um arquivo csv 
+(estoque_20260731.csv) com o estoque por loja e SKU do dia 2026-07-31. 
+A partir desse csv e do arquivo saldo_diario.csv que você elaborou no item anterior,
+você deve reconstruir o estoque diário do período de 2026-04-01 a 2026-07-31.
 
 - Utilize apenas Python para essa tarefa;
+- Para este item, você não deve consultar a base de dados;
 - O retorno deve ser um arquivo csv chamado: estoque_diario.csv;
-- Aponte possíveis inconsistências nos dados encontrados;
+- Se houver inconsistências, aponte.
 
 ---
 
@@ -104,9 +106,33 @@ ofensores e demais informações relevantes para a análise;
 sua análise para o diretor;
 
 ### Observações
-- As visualizações, queries e código Python que sustentam a análise devem estar no arquivo .pdf do desafio;
+- As visualizações, queries e código Python que sustentam a análise devem estar no
+arquivo .pdf do desafio;
 - Utilize apenas Python e SQL para resolução;
 - Não é necessário a construção de aplicação com streamlit, flask ou similar;
+- Não é permitido a utilização de ferramentas como PowerBI, Tableau, Looker Studio e similares.
+
+---
+
+## Como entregar
+
+Arquivo .zip contendo:
+- Arquivo **PDF único** com TODOS os códigos, visualizações e explicações em cada questão. A organização e clareza também serão avaliada;
+- Arquivos .csv criadas gerados no ítem 2B;
+- Vídeo em formato mp4.
+  
+**Não abra pull request e não faça fork deste repositório.**
+
+---
+
+## Orientações
+
+- Sempre que o enunciado for ambíguo, decida e registre a premissa. Premissa
+  declarada vale ponto. Premissa escondida no código custa ponto.
+- Preferimos uma entrega menor e validada a uma entrega completa e não
+  conferida. Se faltar tempo, corte escopo e diga o que cortou.
+- Se algo travar no acesso ao banco, responda o e-mail do convite. Tempo perdido
+  em configuração de ambiente não conta contra você.
 
 ---
 
@@ -121,35 +147,6 @@ qualquer engine distribuída: o volume aqui é pequeno de propósito, e o que se
 avalia é o seu raciocínio sobre o dado, não a sua escolha de engine.
 
 Para gráficos, use a biblioteca que preferir.
-
----
-
-## Como entregar
-
-**Por e-mail**, respondendo o e-mail do convite. Dois arquivos:
-
-1. Um **PDF** com o código e os resultados de cada questão. É esse arquivo que
-   vamos ler. A organização é escolha sua, e conta.
-2. Um **zip** com os arquivos de código e as saídas geradas.
-
-Não inclua o `.env` nem credenciais.
-
-**Não abra pull request e não faça fork deste repositório.** Entrega via git é
-pública: expõe as suas respostas para os outros candidatos e anula a sua
-avaliação.
-
-Prazo: 5 dias corridos a partir do e-mail de convite.
-
----
-
-## Orientações
-
-- Sempre que o enunciado for ambíguo, decida e registre a premissa. Premissa
-  declarada vale ponto. Premissa escondida no código custa ponto.
-- Preferimos uma entrega menor e validada a uma entrega completa e não
-  conferida. Se faltar tempo, corte escopo e diga o que cortou.
-- Se algo travar no acesso ao banco, responda o e-mail do convite. Tempo perdido
-  em configuração de ambiente não conta contra você.
 
 ---
 
