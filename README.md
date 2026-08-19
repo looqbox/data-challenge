@@ -55,98 +55,62 @@ O histórico cobre julho de 2025 e julho de 2026.
 - Um parágrafo curto com as premissas adotadas.
 
 ---
+## Questão 2: Reconstrução de estoque
 
-## Questão 2a: Python, reconstrução da curva diária
+### A) Saldo diários
 
-### Enunciado
-
-O time de suprimentos precisa saber **qual era o saldo de estoque de cada SKU em
+O time de suprimentos precisa saber **qual o saldo de estoque de cada SKU em
 cada loja, dia a dia**. O sistema de origem grava apenas as movimentações, e não
-o estoque em si. Cabe a você reconstruir a curva diária a partir do histórico de
-movimentos, e depois apontar se há inconsistências físicas.
+o saldo. Cabe a você reconstruir a curva diária a partir do histórico de
+movimentos.
 
-Reconstrua o saldo **diário** por loja e SKU na janela de **2026-04-01 a
-2026-07-31**, usando **apenas** o que está em `movimentacoes`, e valide o
-resultado. Escreva esta função:
+Construa o saldo **diário** por loja e SKU na janela de **2026-04-01 a
+2026-07-31**, e valide o resultado. 
 
-```python
-def reconstruir_saldo(...) -> pd.DataFrame:
-    """Saldo diário por (loja, sku, dia).
+| Tabela | Conteúdo |
+|---|---|
+| `movimentacoes` | Movimentações de produtos |
 
-    Todos os dias do intervalo devem estar preenchidos para cada célula,
-    inclusive os dias sem nenhuma movimentação.
-    """
+- Salve o resultado em um arquivo CSV: chamado saldo_diario.csv;
 
-```
+### B) Reconstruo o estoque
+Após alguns dias da sua entrega, o estagiário da área encontrou um arquivo csv com
+o estoque por loja e SKU do dia 2026-07-31. Apartir desse csv, você deve reconstruir
+o estoque diário do período de 2026-04-01 a 2026-07-31.
 
-### Fonte
-
-| Tabela                  | Conteúdo                 |
-| ----------------------- | ------------------------ |
-| `movimentacoes` | Movimentações de estoque |
-
-### Entrega esperada
-
-- O código utilizado para extrair e tratar os dados.
-- O saldo reconstruído, em CSV.
+- Utilize apenas Python para essa tarefa;
+- O retorno deve ser um arquivo csv chamado: estoque_diario.csv;
+- Aponte possíveis inconsistências nos dados encontrados;
 
 ---
 
-## Questão 2b: Python, estoque no dia
+## Questão 3: Análise de resultados
 
-### Enunciado
-
-Suprimentos conseguiu a **contagem física do dia 2026-04-01**: a foto do estoque
-no primeiro dia da janela, loja a loja e SKU a SKU. A pergunta é: **qual é o estoque no dia
-2026-07-14?**
-
-```python
-def gerar_estoque_dia(...) -> pd.DataFrame:
-    """Estoque por (loja, sku), partindo da foto de 2026-04-01."""
-```
-
-### Fonte
-
-| Fonte                       | Onde está                            | Conteúdo                                     |
-| --------------------------- |--------------------------------------| -------------------------------------------- |
-| `estoque_foto_inicial.csv`  | arquivo no repositório               | Contagem física por loja e SKU em 01/04/2026 |
-| `movimentacoes`             | banco, schema `looqbox-challenge-bi` | Movimentações de estoque              |
-
-### Entrega esperada
-
-- O código da função.
-- Um **CSV** `estoque_20260714.csv` com as colunas `loja`, `sku`, `qtd`.
-- Responda brevemente: existe alguma inconsistência nas bases apresentadas? Se 
-sim, quais seriam e quais suas possíveis causas?
-
----
-
-## Questão 3: Case
-
-### Enunciado
+### Cenário
 
 > O ticket médio da rede caiu 8,2% em julho contra junho. O diretor comercial
 > quer saber o motivo na reunião de segunda-feira, e quer uma recomendação.
 
-Faça o caminho completo: extraia o que precisar, analise e comunique.
+### Dados
 
-### Fonte
-
-O histórico cobre junho e julho de 2026.
-
-| Tabela                   | Conteúdo                          |
-| ------------------------ | --------------------------------- |
-| `case_vendas_cupom`      | Venda consolidada por cupom       |
-| `case_dim_categoria`     | Cadastro de categorias            |
+| Tabela | Conteúdo |
+|---|---|
+| `case_vendas_cupom` | Venda consolidada por cupom |
+| `case_dim_categoria` | Cadastro de categorias |
 | `case_dim_loja_campanha` | Participação na campanha de julho |
 
-### Entrega esperada
+### Entregas esperadas
 
-- **Uma página** para o diretor, com a conclusão no primeiro parágrafo e, ao menos, uma visualização.
-- As queries e o código que sustentam a análise.
-- Uma seção **"o que eu não consigo afirmar com esses dados, e as 3 perguntas
-  que eu faria antes da reunião"**. Cada pergunta deve ser uma que, respondida,
-  mudaria a sua recomendação. Diga o que mudaria.
+- Monte um conjunto de visualizações (gráficos, tabelas, etc.) que auxiliem o diretor
+entender as causas dessa queda no indicador, mostrando para ele os principais 
+ofensores e demais informações relevantes para a análise;
+- Grave um vídeo de no máximo 3 minutos no qual você deve simular a apresentação da 
+sua análise para o diretor;
+
+### Observações
+- As visualizações, queries e código Python que sustentam a análise devem estar no arquivo .pdf do desafio;
+- Utilize apenas Python e SQL para resolução;
+- Não é necessário a construção de aplicação com streamlit, flask ou similar;
 
 ---
 
