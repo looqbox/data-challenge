@@ -44,7 +44,7 @@ Ordene do maior gap absoluto contra a meta para o menor.
 | `fato_venda` | Movimento de venda, nível item |
 | `fato_meta`  | Meta por filial                |
 
-### Entrega esperada
+### Entrega
 
 - A query desenvolvida.
 - O resultado, com todas as regionais.
@@ -55,7 +55,7 @@ Ordene do maior gap absoluto contra a meta para o menor.
 
 ### A) Saldo diário
 
-O time de suprimentos precisa saber **qual o saldo de estoque de cada SKU em
+O time de suprimentos precisa saber **qual o saldo (diferença entre entradas e saídas) de estoque de cada SKU em
 cada loja, dia a dia**. O sistema de origem grava apenas as movimentações, e não
 o saldo. Cabe a você reconstruir a curva diária a partir do histórico de
 movimentos.
@@ -67,17 +67,17 @@ Construa o saldo **diário** por loja e SKU na janela de **2026-04-01 a
 |---|---|
 | `movimentacoes` | Movimentações de produtos |
 
-- Salve o resultado em um arquivo CSV: chamado saldo_diario.csv;
+- Salve o resultado em um arquivo CSV: chamado `saldo_diario.csv`;
 
 ### B) Reconstrua o estoque
-Após alguns dias da sua entrega, o estagiário da área encontrou um arquivo csv 
-(estoque_20260731.csv) com o estoque por loja e SKU do dia 2026-07-31. 
-A partir desse csv e do arquivo saldo_diario.csv que você elaborou no item anterior,
+Após alguns dias da sua entrega, o estagiário da área encontrou um arquivo
+`estoque_20260731.csv` com o estoque por loja e SKU do dia 2026-07-31. 
+A partir desse csv e do arquivo `saldo_diario.csv` que você elaborou no item anterior,
 você deve reconstruir o estoque diário do período de 2026-04-01 a 2026-07-31.
 
 - Utilize apenas Python para essa tarefa;
 - Para este item, você não deve consultar a base de dados;
-- O retorno deve ser um arquivo csv chamado: estoque_diario.csv;
+- O retorno deve ser um arquivo csv chamado: `estoque_diario.csv`;
 - Se houver inconsistências, aponte.
 
 ---
@@ -97,7 +97,7 @@ você deve reconstruir o estoque diário do período de 2026-04-01 a 2026-07-31.
 | `case_dim_categoria` | Cadastro de categorias |
 | `case_dim_loja_campanha` | Participação na campanha de julho |
 
-### Entregas esperadas
+### Entrega
 
 - Monte um conjunto de visualizações (gráficos, tabelas, etc.) que auxiliem o diretor
 entender as causas dessa queda no indicador, mostrando para ele os principais 
@@ -117,8 +117,8 @@ arquivo .pdf do desafio;
 ## Como entregar
 
 Arquivo .zip contendo:
-- Arquivo **PDF único** com TODOS os códigos, visualizações e explicações em cada questão. A organização e clareza também serão avaliada;
-- Arquivos .csv criadas gerados no ítem 2B;
+- Arquivo **PDF único** com TODOS os códigos, visualizações e explicações em cada questão. A organização e clareza também serão avaliadas;
+- Arquivos .csv gerados nos itens 2A e 2B;
 - Vídeo em formato mp4.
   
 **Não abra pull request e não faça fork deste repositório.**
