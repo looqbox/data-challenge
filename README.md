@@ -19,7 +19,7 @@ As tabelas das três questões estão no schema `looqbox-challenge-bi`.
 
 ---
 
-## Questão 1: SQL
+## Questão 1: SQL - Performance por Regional
 
 A diretoria comercial acompanha a performance das regionais contra a meta do
 mês. Você precisa entregar a consulta que alimenta esse acompanhamento.
@@ -27,12 +27,11 @@ mês. Você precisa entregar a consulta que alimenta esse acompanhamento.
 Escreva **uma query** que retorne, por **regional**, referente a **julho de
 2026**:
 
-1. faturamento líquido
-2. ticket médio
-3. peças por atendimento (PA)
-4. atingimento de meta
-5. variação de faturamento contra julho de 2025, considerando **apenas mesmas
-   lojas**
+1. Faturamento líquido;
+2. Ticket médio;
+3. Peças por atendimento (PA);
+4. Atingimento de meta;
+5. Variação de faturamento contra julho de 2025, considerando apenas as lojas com faturamento em ambos períodos.
 
 Ordene do maior gap absoluto contra a meta para o menor.
 
@@ -119,7 +118,8 @@ arquivo .pdf do desafio;
 Arquivo .zip contendo:
 - Arquivo **PDF único** com TODOS os códigos, visualizações e explicações em cada questão. A organização e clareza também serão avaliadas;
 - Arquivos .csv gerados nos itens 2A e 2B;
-- Vídeo em formato mp4.
+- Vídeo em formato mp4;
+- (Opcional) Arquivos .py ou ipynb e .sql usados nas questões - Lembrando que todos os códigos devem estar obrigatoriamente no arquivo PDF.
   
 **Não abra pull request e não faça fork deste repositório.**
 
