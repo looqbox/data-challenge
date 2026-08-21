@@ -123,6 +123,8 @@ Arquivo .zip contendo:
   
 **Não abra pull request e não faça fork deste repositório.**
 
+**O candidato deve apontar claramente onde utilizou o auxílio de ferramentas de LLM. Sobe pena de perda de pontos em caso de omissão.**
+
 ---
 
 ## Orientações
@@ -133,7 +135,6 @@ Arquivo .zip contendo:
   conferida. Se faltar tempo, corte escopo e diga o que cortou.
 - Se algo travar no acesso ao banco, responda o e-mail do convite. Tempo perdido
   em configuração de ambiente não conta contra você.
-- IMPORTANTE: O candidato deve apontar claramente onde utilizou o auxílio de ferramentas de LLM. Sobe pena de perda de pontos em caso de omissão.
 
 ---
 
