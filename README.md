@@ -116,17 +116,20 @@ arquivo .pdf do desafio;
 ## Como Enviar
 
 - Crie uma pasta no seu Google Drive pessoal com o nome "[Seu Nome] – [Nome da Vaga] Looqbox";
-- Coloque todos os arquivos abaixo dentro dela;
-- Um arquivo PDF único contendo todos os códigos, visualizações e explicações de cada questão (a organização e clareza também serão avaliadas);
-- Os 2 arquivos .csv gerados nos itens 2A e 2B;
-- Um vídeo em formato .mp4, de até 3 minutos;
-- (Opcional) Arquivos .py/.ipynb e .sql usados nas questões — lembrando que todos os códigos já devem estar, obrigatoriamente, no arquivo PDF;
-- **Compartilhe o acesso com recrutamento@looqbox.com e envie o link conforme as instruções no e-mail de convite.**
+- Coloque todos os arquivos abaixo dentro dela:
+  - Um arquivo PDF único contendo todos os códigos, visualizações e explicações de cada questão (a organização e clareza também serão avaliadas);
+  - Os 2 arquivos .csv gerados nos itens 2A e 2B;
+  - Um vídeo em formato .mp4, de até 3 minutos;
+  - (Opcional) Arquivos .py/.ipynb e .sql usados nas questões — lembrando que todos os códigos já devem estar, obrigatoriamente, no arquivo PDF;
+- Compartilhe o acesso com recrutamento@looqbox.com e envie o link conforme as instruções no e-mail de convite.
 
-**IMPORTANTE: A data de envio será considerada a entrega final - em caso de alterações/edição dos arquivos, as repostas serão desconsideradas e o candidato desclassificado.**
+**IMPORTANTE** 
+
+**- A data de envio será considerada a entrega final - em caso de alterações/edição dos arquivos, as repostas serão desconsideradas e o candidato desclassificado.**
   
-**Não abra pull request e não faça fork deste repositório.**
-**O candidato deve apontar claramente onde utilizou o auxílio de ferramentas de LLM. Sobe pena de perda de pontos/reprovação em caso de omissão.**
+**- Não abra pull request e não faça fork deste repositório.**
+
+**- O candidato deve apontar claramente onde utilizou o auxílio de ferramentas de LLM. Sobe pena de perda de pontos/reprovação em caso de omissão.**
 
 ---
 
