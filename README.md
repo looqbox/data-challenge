@@ -121,7 +121,7 @@ arquivo .pdf do desafio;
   - Os 2 arquivos .csv gerados nos itens 2A e 2B;
   - Um vídeo em formato .mp4, de até 3 minutos;
   - (Opcional) Arquivos .py/.ipynb e .sql usados nas questões — lembrando que todos os códigos já devem estar, obrigatoriamente, no arquivo PDF;
-- Compartilhe o acesso com recrutamento@looqbox.com e envie o link conforme as instruções no e-mail de convite.
+- Compartilhe o acesso da pasta criada com recrutamento@looqbox.com e envie o link conforme as instruções no e-mail de convite.
 
 **IMPORTANTE** 
 
