@@ -129,7 +129,25 @@ arquivo .pdf do desafio;
   
 **- Não abra pull request e não faça fork deste repositório.**
 
-**- O candidato deve apontar claramente onde utilizou o auxílio de ferramentas de LLM. Sobe pena de perda de pontos/reprovação em caso de omissão.**
+**- O candidato deve apontar claramente onde utilizou o auxílio de ferramentas de LLM. Sobe pena de perda de pontos/reprovação em caso de omissão, conforme descritivo da sessão Uso de IA / LLM.**
+
+---
+
+## Uso de IA / LLM
+
+A IA pode ser usada só como **apoio pontual**, como uma documentação: lembrar sintaxe, entender mensagens de erro ou tirar dúvidas específicas (ex.: trocar uma subquery por uma CTE).
+
+Pedir que a IA resolva questões ou gere códigos, gráficos, o PDF ou o roteiro do vídeo resulta em **reprovação automática**, mesmo que você tenha revisado o resultado. O raciocínio, a estrutura da solução e o código devem ser seus.
+
+### Declaração obrigatória
+
+Se usou IA, inclua no PDF um detalhamento de cada caso de uso:
+
+| Questão / trecho | O que perguntou | Como usou a resposta |
+|---|---|---|
+| Q1 – lojas comparáveis | Como filtrar lojas presentes nos dois períodos com CTE | Adaptei a sugestão à minha query |
+
+Declarações genéricas não serão aceitas, e **omitir o uso de IA também resulta em reprovação**.
 
 ---
 
